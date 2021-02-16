@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# {{ ansible_managed }}
+# Following commands will be executed by systemd after xendomains service
+{% for domain in xen_sched_credit_domains %}
+/usr/sbin/xl sched-credit -d {{ domain.name }} -w {{ domain.weight }}
+{% endfor %}

@@ -1,0 +1,19 @@
+---
+- name: Include vars based on repo
+  include_vars: "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+
+- name: Install xen packages
+  apt:
+    name: "{{ xen_packages }}"
+
+- name: Set credit scheduling
+  include_tasks: sched_credit.yml
+  when: xen_sched_credit_domains|length != 0
+
+- name: Disable xen domain save feature
+  lineinfile:
+    path: /etc/default/xendomains
+    line: XENDOMAINS_SAVE=
+    regexp: ^XENDOMAINS_SAVE=
+    state: present
+  when: xen_disable_domains_save

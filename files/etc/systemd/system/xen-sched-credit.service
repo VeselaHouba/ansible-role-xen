@@ -1,0 +1,10 @@
+[Unit]
+Description=Set xen scheduler credit values
+After=xendomains.service
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /etc/xen/scripts/sched-credit.sh
+
+[Install]
+WantedBy=xendomains.service

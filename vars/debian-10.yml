@@ -1,0 +1,10 @@
+---
+xen_packages:
+  - grub-xen-bin
+  - grub-xen-host
+  - xen-tools
+  - xen-utils-common
+  - xenstore-utils
+  - ifenslave
+  - bridge-utils
+  - vlan

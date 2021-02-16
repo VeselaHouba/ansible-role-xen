@@ -1,0 +1,6 @@
+---
+xen_disable_domains_save: false
+xen_sched_credit_domains: []
+#  - name: Domain-0
+#    weight: 512
+xen_sched_credit_domains_apply: false

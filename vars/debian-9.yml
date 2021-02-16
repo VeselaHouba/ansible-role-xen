@@ -1,0 +1,14 @@
+---
+xen_packages:
+  - grub-xen-bin
+  - grub-xen-host
+  - xen-tools
+  - xen-utils-common
+  - xenstore-utils
+  - ifenslave
+  - bridge-utils
+  - vlan
+  - xen-linux-system-amd64
+  - xen-system-amd64
+  - xen-hypervisor-4.8-amd64
+  - xen-utils-4.8

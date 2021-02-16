@@ -1,0 +1,23 @@
+---
+- name: Upload script for xen weights
+  template:
+    src: etc/xen/scripts/sched-credit.sh.j2
+    dest: /etc/xen/scripts/sched-credit.sh
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Upload systemd service for weights
+  copy:
+    src: etc/systemd/system/xen-sched-credit.service
+    dest: /etc/systemd/system/xen-sched-credit.service
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Set systemd service
+  systemd:
+    name: xen-sched-credit.service
+    enabled: true
+    state: "{{ 'started' if xen_sched_credit_domains_apply else omit }}"
+    daemon_reload: true
