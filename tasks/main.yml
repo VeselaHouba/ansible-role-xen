@@ -1,6 +1,6 @@
 ---
 - name: Include vars based on repo
-  include_vars: "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+  include_vars: "{{ ansible_distribution|lower }}-{{ ansible_distribution_major_version }}.yml"
 
 - name: Install xen packages
   apt:
